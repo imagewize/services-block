@@ -21,6 +21,9 @@ import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
 
+// Register the service-item block
+import './service-item';
+
 /**
  * Every block starts by registering a new block type definition.
  *

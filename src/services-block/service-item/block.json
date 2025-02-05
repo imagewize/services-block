@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "imagewize/service-item",
     "version": "0.1.0",
-    "title": "Services Block",
+    "title": "Service Item",
     "category": "design",
     "parent": ["imagewize/services-block"],
     "attributes": {
@@ -22,5 +22,6 @@
     },
     "supports": {
         "html": false
-    }
+    },
+    "editorScript": "file:./index.js"
 }
