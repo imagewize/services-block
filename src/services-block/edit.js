@@ -70,7 +70,6 @@ export default function Edit({ attributes, setAttributes }) {
 			<div className="container mx-auto max-w-4xl px-4">
 				<InnerBlocks 
 					template={TEMPLATE}
-					templateLock="all"
 				/>
 			</div>
 		</section>
