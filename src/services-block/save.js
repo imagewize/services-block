@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,28 +15,12 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save({ attributes }) {
-	const { heading, intro } = attributes;
-	
-	return (
-		<section id="services" className="py-16 bg-gray-50">
-			<div className="container mx-auto max-w-4xl px-4">
-				<div className="mb-12">
-					<RichText.Content
-						tagName="h2"
-						className="text-3xl font-bold text-center font-open-sans"
-						value={heading}
-					/>
-					<RichText.Content
-						tagName="p"
-						className="mx-auto max-w-2xl text-xl leading-relaxed my-8 text-center text-textBodyGray font-open-sans font-light container"
-						value={intro}
-					/>
-				</div>
-				<div className="flex flex-col gap-8">
-					<InnerBlocks.Content />
-				</div>
-			</div>
-		</section>
-	);
+export default function save() {
+    return (
+        <section id="services" className="py-16 bg-gray-50">
+            <div className="container mx-auto max-w-4xl px-4">
+                <InnerBlocks.Content />
+            </div>
+        </section>
+    );
 }
