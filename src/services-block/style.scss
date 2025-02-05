@@ -1,0 +1,50 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-services-block {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+
+    .service-block {
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+            .service-icon {
+                background-color: #ef4444;
+            }
+            
+            .service-title:after {
+                width: 50%;
+                background-color: #374151;
+            }
+        }
+    }
+
+    .service-icon {
+        transition: background-color 0.2s;
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    .service-title {
+        &:after {
+            content: '';
+            display: block;
+            width: 25%;
+            height: 3px;
+            background-color: #d1d5db;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+    }
+}

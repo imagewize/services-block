@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/service-item",
+  "version": "0.1.0",
+  "title": "Service Item",
+  "category": "widgets",
+  "parent": [
+    "create-block/services-block"
+  ],
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

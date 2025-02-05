@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/services-block",
+  "version": "0.1.0",
+  "title": "Services Block",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Services section with heading, intro and service items",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Our Awesome Services."
+    },
+    "intro": {
+      "type": "string",
+      "default": "We live and breathe web design, e-commerce, hosting, and website maintenance."
+    }
+  },
+  "textdomain": "services-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

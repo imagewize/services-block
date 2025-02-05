@@ -1,0 +1,32 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-services-block {
+	border: 1px dotted #f00;
+
+    .block-editor-inner-blocks {
+        width: 100%;
+    }
+    
+    .block-editor-block-list__layout {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .service-icon {
+        input {
+            background: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}
