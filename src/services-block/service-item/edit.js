@@ -6,7 +6,7 @@ export default function Edit({ attributes, setAttributes }) {
     const { icon, title, description } = attributes;
 
     return (
-        <div className="service-block bg-white p-6 rounded-lg group">
+        <div className="services-block bg-white p-6 rounded-lg group">
             <div className="grid grid-cols-[auto_1fr] gap-4 items-start">
                 <TextControl
                     className="service-icon inline-flex p-2 text-3xl bg-blue-600 rounded-lg"

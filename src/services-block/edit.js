@@ -32,11 +32,11 @@ import './editor.scss';
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	const { heading, intro } = attributes;
-	const ALLOWED_BLOCKS = ['create-block/service-item'];
+	const ALLOWED_BLOCKS = ['imagewize/service-item'];
 	const TEMPLATE = [
-		['create-block/service-item'],
-		['create-block/service-item'],
-		['create-block/service-item']
+		['imagewize/service-item'],
+		['imagewize/service-item'],
+		['imagewize/service-item']
 	];
 
 	return (

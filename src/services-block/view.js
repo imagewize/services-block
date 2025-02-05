@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from create-block-services-block block)' );
+console.log( 'Hello World! (from imagewize-services-block block)' );
 /* eslint-enable no-console */
