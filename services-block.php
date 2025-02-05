@@ -25,10 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_services_block_block_init() {
-    // Register the main services block
     register_block_type( __DIR__ . '/build/services-block' );
-    
-    // Register the service item block
-    register_block_type( __DIR__ . '/build/services-block/service-item' );
 }
 add_action( 'init', 'create_block_services_block_block_init' );

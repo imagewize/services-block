@@ -47,4 +47,50 @@
             transition: all 0.3s;
         }
     }
+
+    .wp-block-row {
+        margin-bottom: 2rem;
+        
+        > .wp-block-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+    }
+
+    .wp-block-column {
+        margin: 0;
+    }
+
+    .wp-block-columns {
+        margin-bottom: 2rem;
+        gap: 2rem;
+        
+        .wp-block-column {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                
+                .service-icon {
+                    background-color: #ef4444;
+                }
+            }
+        }
+    }
+
+    .service-title {
+        position: relative;
+        color: #2563eb;
+        margin-bottom: 1rem;
+    }
+
+    .service-body {
+        color: #4b5563;
+        line-height: 1.7;
+    }
 }
