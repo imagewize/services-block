@@ -32,11 +32,27 @@ import './editor.scss';
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	const { heading, intro } = attributes;
-	const ALLOWED_BLOCKS = ['imagewize/service-item'];
+	
 	const TEMPLATE = [
-		['imagewize/service-item'],
-		['imagewize/service-item'],
-		['imagewize/service-item']
+		['core/columns', {}, [
+			['core/column', {}, [
+				['core/columns', {}, [
+					['core/column', { width: '20%' }, [
+						['core/html', { content: `<span class="service-icon inline-flex p-2 text-3xl bg-blue-600 rounded-lg group-hover:bg-red-500">
+							<svg class="text-white w-8 h-8">...</svg>
+						</span>` }]
+					]],
+					['core/column', { width: '80%' }, [
+						['core/heading', { level: 3, content: 'WordPress Sites', className: 'service-title' }],
+						['core/paragraph', { content: 'Service description here...', className: 'service-body' }]
+					]]
+				]]
+			]],
+			['core/column', {}, [
+				// Similar nested structure for second service
+			]]
+		]],
+		// Repeat for other rows
 	];
 
 	return (
@@ -58,10 +74,10 @@ export default function Edit({ attributes, setAttributes }) {
 						placeholder={__('Add introduction text...', 'services-block')}
 					/>
 				</div>
-				<div className="grid md:grid-cols-2 gap-8">
+				<div className="flex flex-col gap-8">
 					<InnerBlocks 
-						allowedBlocks={ALLOWED_BLOCKS}
 						template={TEMPLATE}
+						templateLock="all"
 					/>
 				</div>
 			</div>
