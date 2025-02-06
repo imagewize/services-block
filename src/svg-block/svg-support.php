@@ -11,21 +11,31 @@
 
 namespace Imagewize\SVGSupport;
 
-if (!extension_loaded('xml')) {
-    add_action('admin_notices', function() {
-        echo '<div class="error"><p>SVG Support requires PHP XML extension to be installed and enabled.</p></div>';
-    });
-    return;
-}
-
 class SVGSupport {
     /**
-     * Initialize SVG support by adding necessary filters
+     * Initialize SVG support
      */
-    public function __construct() {
-        add_filter('upload_mimes', [$this, 'add_svg_mime_type']);
-        add_filter('wp_check_filetype_and_ext', [$this, 'check_svg_filetype'], 10, 4);
-        add_filter('wp_handle_upload_prefilter', [$this, 'sanitize_svg']);
+    public static function init() {
+        if (!extension_loaded('xml')) {
+            add_action('admin_notices', function() {
+                echo '<div class="error"><p>SVG Support requires PHP XML extension to be installed and enabled.</p></div>';
+            });
+            return;
+        }
+
+        add_filter('upload_mimes', [self::class, 'add_svg_mime_type'], 10, 1);
+        add_filter('wp_check_filetype_and_ext', [self::class, 'check_svg_filetype'], 10, 4);
+        add_filter('wp_handle_upload_prefilter', [self::class, 'sanitize_svg'], 10, 1);
+        // Add CORS header for SVG files
+        add_filter('wp_headers', [self::class, 'add_cors_header'], 10, 1);
+    }
+
+    /**
+     * Add CORS header for SVG files
+     */
+    public static function add_cors_header($headers) {
+        $headers['Access-Control-Allow-Origin'] = '*';
+        return $headers;
     }
 
     /**
@@ -34,7 +44,7 @@ class SVGSupport {
      * @param array $mimes Array of mime types keyed by their file extension regex
      * @return array Modified array of mime types
      */
-    public function add_svg_mime_type($mimes) {
+    public static function add_svg_mime_type($mimes) {
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;
     }
@@ -51,9 +61,9 @@ class SVGSupport {
      * @param array  $mimes    Array of allowed mime types
      * @return array Modified file data
      */
-    public function check_svg_filetype($data, $file, $filename, $mimes) {
+    public static function check_svg_filetype($data, $file, $filename, $mimes) {
         if (substr($filename, -4) === '.svg') {
-            if ($this->is_valid_svg($file)) {
+            if (self::is_valid_svg($file)) {
                 $data['type'] = 'image/svg+xml';
                 $data['ext'] = 'svg';
             } else {
@@ -70,7 +80,7 @@ class SVGSupport {
      * @param string $file Path to the uploaded file
      * @return bool True if valid SVG, false otherwise
      */
-    private function is_valid_svg($file) {
+    private static function is_valid_svg($file) {
         $svg = file_get_contents($file);
         libxml_use_internal_errors(true);
         $xml = simplexml_load_string($svg);
@@ -91,9 +101,9 @@ class SVGSupport {
      * @param array $file Upload file data array
      * @return array Modified file data array with sanitized content
      */
-    public function sanitize_svg($file) {
+    public static function sanitize_svg($file) {
         if ($file['type'] === 'image/svg+xml') {
-            if (!$this->is_valid_svg($file['tmp_name'])) {
+            if (!self::is_valid_svg($file['tmp_name'])) {
                 $file['error'] = __('Invalid SVG file', 'imagewize-services-blocks');
                 return $file;
             }
@@ -111,7 +121,7 @@ class SVGSupport {
             libxml_clear_errors();
             
             // Remove potentially harmful elements and attributes
-            $this->sanitize_svg_elements($dom);
+            self::sanitize_svg_elements($dom);
             
             // Save sanitized SVG
             file_put_contents($file['tmp_name'], $dom->saveXML());
@@ -127,11 +137,11 @@ class SVGSupport {
      *
      * @param \DOMDocument $dom The DOM document to sanitize
      */
-    private function sanitize_svg_elements(\DOMDocument $dom) {
+    private static function sanitize_svg_elements(\DOMDocument $dom) {
         $elements = $dom->getElementsByTagName('*');
         foreach ($elements as $element) {
             if ($element instanceof \DOMElement) {
-                $this->remove_harmful_attributes($element);
+                self::remove_harmful_attributes($element);
             }
         }
     }
@@ -153,7 +163,7 @@ class SVGSupport {
      *
      * @param \DOMElement $element The DOM element to clean
      */
-    private function remove_harmful_attributes(\DOMElement $element) {
+    private static function remove_harmful_attributes(\DOMElement $element) {
         $harmful_attributes = array();
         foreach ($element->attributes as $attribute) {
             if ($attribute instanceof \DOMAttr) {
@@ -174,4 +184,4 @@ class SVGSupport {
 }
 
 // Initialize SVG Support
-new SVGSupport();
+add_action('init', ['Imagewize\SVGSupport\SVGSupport', 'init']);

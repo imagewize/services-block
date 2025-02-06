@@ -18,8 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Include SVG support functionality
+// Include and initialize SVG support functionality
 require_once __DIR__ . '/src/svg-block/svg-support.php';
+add_action('init', ['Imagewize\SVGSupport\SVGSupport', 'init'], 5);
 
 /**
  * Registers blocks using the metadata loaded from the `block.json` files.
@@ -31,4 +32,4 @@ function create_block_services_block_init() {
     // Register the SVG block
     register_block_type( __DIR__ . '/build/svg-block' );
 }
-add_action( 'init', 'create_block_services_block_init' );
+add_action( 'init', 'create_block_services_block_init', 10 );
