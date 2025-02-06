@@ -2,7 +2,10 @@ import { __ } from '@wordpress/i18n';
 import {
     useBlockProps,
     InspectorControls,
-    BlockControls
+    BlockControls,
+    withColors,
+    __experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+    __experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients
 } from '@wordpress/block-editor';
 import {
     ToolbarGroup, 
@@ -14,13 +17,26 @@ import {
 } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { MediaUpload } from '@wordpress/media-utils';
+import { compose } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
 
-// Fix the import path to use the editor scss file directly
 import './editor.scss';
 
-export default function Edit({ attributes, setAttributes }) {
-    const { svgUrl, width, height, backgroundColor, borderRadius, padding } = attributes;
+const Edit = compose(
+    withColors('backgroundColor'),
+    withSelect((select) => ({
+        colors: select('core/block-editor').getSettings()?.colors || []
+    }))
+)(function({ 
+    attributes, 
+    setAttributes,
+    backgroundColor,
+    setBackgroundColor,
+    clientId
+}) {
+    const { svgUrl, width, height, borderRadius, padding } = attributes;
     const [error, setError] = useState('');
+    const colorGradientSettings = useMultipleOriginColorsAndGradients();
 
     const onSelectSVG = (media) => {
         if (media.mime !== 'image/svg+xml') {
@@ -31,9 +47,14 @@ export default function Edit({ attributes, setAttributes }) {
         setAttributes({ svgUrl: media.url });
     };
 
+    const onBackgroundColorChange = (color) => {
+        setBackgroundColor(color);
+        setAttributes({ backgroundColor: color });
+    };
+
     const blockProps = useBlockProps({
         style: {
-            backgroundColor,
+            backgroundColor: backgroundColor?.color,
             borderRadius: `${borderRadius}px`,
             padding: `${padding}px`,
             width: `${width}px`,
@@ -62,6 +83,18 @@ export default function Edit({ attributes, setAttributes }) {
                 </ToolbarGroup>
             </BlockControls>
             
+            <InspectorControls group="color">
+                <ColorGradientSettingsDropdown
+                    panelId={clientId}
+                    settings={[{
+                        label: __('Background Color'),
+                        colorValue: backgroundColor?.color,
+                        onColorChange: onBackgroundColorChange
+                    }]}
+                    {...colorGradientSettings}
+                />
+            </InspectorControls>
+
             <InspectorControls>
                 <PanelBody title={__('SVG Settings')}>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -80,13 +113,6 @@ export default function Edit({ attributes, setAttributes }) {
                         onChange={(value) => setAttributes({ height: value })}
                         min={20}
                         max={200}
-                    />
-                    
-                    <TextControl
-                        label={__('Background Color')}
-                        value={backgroundColor}
-                        onChange={(value) => setAttributes({ backgroundColor: value })}
-                        type="color"
                     />
                     
                     <RangeControl
@@ -124,4 +150,6 @@ export default function Edit({ attributes, setAttributes }) {
             </div>
         </>
     );
-}
+});
+
+export default Edit;
