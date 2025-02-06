@@ -22,6 +22,11 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
 /**
+ * Import the SVG block to ensure it is loaded before the services block.
+ */
+import '../svg-block';
+
+/**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
@@ -48,9 +53,14 @@ export default function Edit({ attributes, setAttributes }) {
 			['core/column', {}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
-						['core/html', { content: `<span class="service-icon inline-flex p-2 text-3xl bg-blue-600 rounded-lg group-hover:bg-red-500">
-							<svg class="text-white w-8 h-8">...</svg>
-						</span>` }]
+						['imagewize/svg-block', {
+							svgUrl: '/src/services-block/assets/devicon-plain--wordpress-w.svg',
+							width: 55,
+							height: 60,
+							backgroundColor: '#3b82f6',
+							borderRadius: 8,
+							padding: 20
+						}]
 					]],
 					['core/column', { width: '80%' }, [
 						['core/heading', { level: 3, content: 'WordPress Sites', className: 'service-title' }],

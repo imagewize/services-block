@@ -18,8 +18,11 @@ import './style.scss';
  * Internal dependencies
  */
 import Edit from './edit';
-import save from './save';
+import Save from './save';
 import metadata from './block.json';
+
+// Import and register the SVG block
+import '../svg-block';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -35,5 +38,5 @@ registerBlockType( metadata.name, {
 	/**
 	 * @see ./save.js
 	 */
-	save,
+	save: Save,
 } );
