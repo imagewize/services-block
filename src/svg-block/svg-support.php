@@ -23,19 +23,16 @@ class SVGSupport {
             return;
         }
 
-        add_filter('upload_mimes', [self::class, 'add_svg_mime_type'], 10, 1);
-        add_filter('wp_check_filetype_and_ext', [self::class, 'check_svg_filetype'], 10, 4);
-        add_filter('wp_handle_upload_prefilter', [self::class, 'sanitize_svg'], 10, 1);
-        // Add CORS header for SVG files
-        add_filter('wp_headers', [self::class, 'add_cors_header'], 10, 1);
-    }
-
-    /**
-     * Add CORS header for SVG files
-     */
-    public static function add_cors_header($headers) {
-        $headers['Access-Control-Allow-Origin'] = '*';
-        return $headers;
+        // Basic SVG support
+        add_filter('upload_mimes', [self::class, 'add_svg_mime_type']);
+        add_filter('wp_check_filetype_and_ext', [self::class, 'fix_svg_filetype'], 10, 4);
+        
+        // Security filters
+        add_filter('wp_handle_upload_prefilter', [self::class, 'sanitize_svg']);
+        
+        // Display fixes
+        add_action('admin_head', [self::class, 'fix_svg_display']);
+        add_action('wp_head', [self::class, 'fix_svg_display']);
     }
 
     /**
@@ -50,27 +47,19 @@ class SVGSupport {
     }
 
     /**
-     * Validate SVG filetype and extension during upload
-     *
-     * Ensures that files with .svg extension are properly validated
-     * before being accepted into the media library.
-     *
-     * @param array  $data     Array of file data
-     * @param string $file     Full path to the uploaded file
-     * @param string $filename The name of the file
-     * @param array  $mimes    Array of allowed mime types
-     * @return array Modified file data
+     * Fix SVG filetype checking for WordPress
      */
-    public static function check_svg_filetype($data, $file, $filename, $mimes) {
+    public static function fix_svg_filetype($data, $file, $filename, $mimes) {
+        // WordPress version check removed as it's too restrictive
         if (substr($filename, -4) === '.svg') {
+            $filetype = wp_check_filetype($filename, $mimes);
+            
             if (self::is_valid_svg($file)) {
-                $data['type'] = 'image/svg+xml';
                 $data['ext'] = 'svg';
-            } else {
-                $data['ext'] = false;
-                $data['type'] = false;
+                $data['type'] = 'image/svg+xml';
             }
         }
+        
         return $data;
     }
 
@@ -180,6 +169,22 @@ class SVGSupport {
         foreach ($harmful_attributes as $name) {
             $element->removeAttribute($name);
         }
+    }
+
+    /**
+     * Add SVG display fixes for admin and frontend
+     */
+    public static function fix_svg_display() {
+        echo '<style type="text/css">
+            .attachment-266x266, .thumbnail img {
+                width: 100% !important;
+                height: auto !important;
+            }
+            .attachment img[src$=".svg"], .widget img[src$=".svg"] {
+                width: 100% !important;
+                height: auto !important;
+            }
+            </style>';
     }
 }
 
