@@ -5,30 +5,17 @@ export default function save({ attributes }) {
     
     const blockProps = useBlockProps.save({
         style: {
-            backgroundColor,  // Direct use of color value
-            borderRadius: `${borderRadius}px`,
-            padding: `${padding}px`,
-            width: `${width}px`,
-            height: `${height}px`,
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            '--svg-width': `${width}px`,
+            '--svg-height': `${height}px`,
+            '--svg-background': backgroundColor,
+            '--svg-border-radius': `${borderRadius}px`,
+            '--svg-padding': `${padding}px`,
         }
     });
 
     return (
         <div {...blockProps}>
-            {svgUrl && (
-                <img 
-                    src={svgUrl} 
-                    alt=""
-                    style={{ 
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain'
-                    }}
-                />
-            )}
+            {svgUrl && <img src={svgUrl} alt="" />}
         </div>
     );
 }
