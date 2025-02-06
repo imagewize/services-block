@@ -26,6 +26,9 @@ import './editor.scss';
  */
 import '../svg-block';
 
+// Import SVG directly
+import wpSvg from './assets/devicon-plain--wordpress-w.svg';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -54,7 +57,7 @@ export default function Edit({ attributes, setAttributes }) {
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
-							svgUrl: './assets/devicon-plain--wordpress-w.svg',
+							svgUrl: wpSvg,  // Use imported SVG here
 							width: 55,
 							height: 60,
 							backgroundColor: '#3b82f6',
