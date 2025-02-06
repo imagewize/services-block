@@ -33,6 +33,10 @@ class SVGSupport {
         // Display fixes
         add_action('admin_head', [self::class, 'fix_svg_display']);
         add_action('wp_head', [self::class, 'fix_svg_display']);
+
+        // Fix AJAX access for media library
+        add_filter('ajax_query_attachments_args', [self::class, 'adjust_svg_media_query'], 10, 1);
+        add_filter('rest_authentication_errors', [self::class, 'allow_svg_upload_api']);
     }
 
     /**
@@ -185,6 +189,38 @@ class SVGSupport {
                 height: auto !important;
             }
             </style>';
+    }
+
+    /**
+     * Allow SVGs in media library AJAX queries
+     */
+    public static function adjust_svg_media_query($query) {
+        if (!isset($query['post_mime_type'])) {
+            return $query;
+        }
+        
+        // If searching for images, include SVGs
+        if ($query['post_mime_type'] === 'image') {
+            $query['post_mime_type'] = ['image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/tiff', 'image/x-icon', 'image/svg+xml'];
+        }
+        
+        return $query;
+    }
+
+    /**
+     * Allow SVG upload through REST API
+     */
+    public static function allow_svg_upload_api($result) {
+        if (!empty($result)) {
+            return $result;
+        }
+
+        // Add CORS headers for media requests
+        if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], admin_url()) !== false) {
+            header('Access-Control-Allow-Headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type');
+        }
+        
+        return null;
     }
 }
 

@@ -54,7 +54,7 @@ export default function Edit({ attributes, setAttributes }) {
                         render={({ open }) => (
                             <ToolbarButton
                                 onClick={open}
-                                icon="replace"
+                                icon="upload"  // Using WordPress dashicon
                                 label={svgUrl ? __('Replace SVG') : __('Upload SVG')}
                             />
                         )}
