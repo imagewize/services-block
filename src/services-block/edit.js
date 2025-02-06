@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,6 +20,9 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+
+// Import SVG directly
+import wpSvg from './assets/devicon-plain--wordpress-w.svg';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,16 +34,26 @@ import './editor.scss';
  */
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
-	const { heading, intro } = attributes;
 	
 	const TEMPLATE = [
+		['core/heading', {
+			level: 2,
+			content: 'Our Awesome Services',
+			align: 'center',
+			className: 'text-3xl font-bold font-open-sans mb-12'
+		}],
+		['core/paragraph', {
+			content: 'We live and breathe web design, e-commerce, hosting, and website maintenance.',
+			align: 'center',
+			className: 'mx-auto max-w-2xl text-xl leading-relaxed mb-12 text-textBodyGray font-open-sans font-light'
+		}],
 		['core/columns', {}, [
 			['core/column', {}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
-						['core/html', { content: `<span class="service-icon inline-flex p-2 text-3xl bg-blue-600 rounded-lg group-hover:bg-red-500">
-							<svg class="text-white w-8 h-8">...</svg>
-						</span>` }]
+						['imagewize/svg-block', {
+							svgUrl: wpSvg  // Only set the SVG URL, rest uses defaults from block.json
+						}]
 					]],
 					['core/column', { width: '80%' }, [
 						['core/heading', { level: 3, content: 'WordPress Sites', className: 'service-title' }],
@@ -58,28 +71,9 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<section {...blockProps} className="py-16 bg-gray-50">
 			<div className="container mx-auto max-w-4xl px-4">
-				<div className="mb-12">
-					<RichText
-						tagName="h2"
-						className="text-3xl font-bold text-center font-open-sans"
-						value={heading}
-						onChange={(heading) => setAttributes({ heading })}
-						placeholder={__('Add heading...', 'services-block')}
-					/>
-					<RichText
-						tagName="p"
-						className="mx-auto max-w-2xl text-xl leading-relaxed my-8 text-center text-textBodyGray font-open-sans font-light container"
-						value={intro}
-						onChange={(intro) => setAttributes({ intro })}
-						placeholder={__('Add introduction text...', 'services-block')}
-					/>
-				</div>
-				<div className="flex flex-col gap-8">
-					<InnerBlocks 
-						template={TEMPLATE}
-						templateLock="all"
-					/>
-				</div>
+				<InnerBlocks 
+					template={TEMPLATE}
+				/>
 			</div>
 		</section>
 	);

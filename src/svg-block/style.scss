@@ -1,0 +1,26 @@
+.wp-block-imagewize-svg-block {
+    // Container styles
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    
+    // Container variables
+    background-color: var(--svg-background, #3B82F6);
+    border-radius: var(--svg-border-radius, 8px);
+    padding: var(--svg-padding, 20px);
+    
+    // SVG image styles
+    img {
+        display: block;
+        width: var(--svg-width, 50px) !important;
+        height: var(--svg-height, 50px) !important;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+    
+    &:hover img {
+        transform: scale(1.1);
+    }
+}

@@ -1,0 +1,23 @@
+.wp-block-imagewize-svg-block {
+    .components-panel__body {
+        border-top: 1px solid #e0e0e0;
+        
+        &-title {
+            font-weight: 600;
+        }
+    }
+    
+    // Editor-specific styles for the SVG block
+    .components-button {
+        margin-bottom: 1rem;
+    }
+    
+    // Add spacing between controls
+    .components-range-control {
+        margin-bottom: 16px;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

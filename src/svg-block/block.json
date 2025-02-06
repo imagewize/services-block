@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "imagewize/svg-block",
+    "version": "0.1.0",
+    "title": "SVG Block",
+    "category": "media",
+    "icon": "format-image",
+    "description": "Block for displaying SVG with customizable properties",
+    "attributes": {
+        "svgUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "width": {
+            "type": "number",
+            "default": 50
+        },
+        "height": {
+            "type": "number",
+            "default": 50
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#3B82F6"
+        },
+        "borderRadius": {
+            "type": "number",
+            "default": 8
+        },
+        "padding": {
+            "type": "number",
+            "default": 5
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "textdomain": "svg-block",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}

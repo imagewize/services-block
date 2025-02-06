@@ -10,19 +10,8 @@
   "supports": {
     "html": false
   },
-  "attributes": {
-    "heading": {
-      "type": "string",
-      "default": "Our Awesome Services."
-    },
-    "intro": {
-      "type": "string",
-      "default": "We live and breathe web design, e-commerce, hosting, and website maintenance."
-    }
-  },
   "textdomain": "services-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "style": "file:./style-index.css"
 }
