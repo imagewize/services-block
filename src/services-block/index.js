@@ -21,22 +21,15 @@ import Edit from './edit';
 import Save from './save';
 import metadata from './block.json';
 
-// Import and register the SVG block
-import '../svg-block';
+// Remove the SVG block import
+// import '../svg-block';
 
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( metadata.name, {
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
-
-	/**
-	 * @see ./save.js
-	 */
-	save: Save,
-} );
+registerBlockType(metadata.name, {
+    edit: Edit,
+    save: Save,
+});
