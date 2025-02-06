@@ -55,7 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <ToolbarButton
                                 onClick={open}
                                 icon="replace"
-                                label={__('Replace SVG')}
+                                label={svgUrl ? __('Replace SVG') : __('Upload SVG')}
                             />
                         )}
                     />
@@ -64,18 +64,6 @@ export default function Edit({ attributes, setAttributes }) {
             
             <InspectorControls>
                 <PanelBody title={__('SVG Settings')}>
-                    <MediaUpload
-                        onSelect={onSelectSVG}
-                        allowedTypes={['image/svg+xml']}
-                        render={({ open }) => (
-                            <Button 
-                                onClick={open}
-                                variant="primary"
-                            >
-                                {svgUrl ? 'Replace SVG' : 'Upload SVG'}
-                            </Button>
-                        )}
-                    />
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     
                     <RangeControl
