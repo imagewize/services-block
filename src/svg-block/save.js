@@ -5,7 +5,7 @@ export default function save({ attributes }) {
     
     const blockProps = useBlockProps.save({
         style: {
-            backgroundColor: backgroundColor?.color,  // Theme color object format
+            backgroundColor,  // Direct use of color value
             borderRadius: `${borderRadius}px`,
             padding: `${padding}px`,
             width: `${width}px`,

@@ -23,19 +23,11 @@ import { withSelect } from '@wordpress/data';
 import './editor.scss';
 
 const Edit = compose(
-    withColors({
-        backgroundColor: 'background-color'
-    }),
+    withColors('backgroundColor'),
     withSelect((select) => ({
         colors: select('core/block-editor').getSettings()?.colors || []
     }))
-)(function({ 
-    attributes, 
-    setAttributes,
-    backgroundColor,
-    setBackgroundColor,
-    clientId
-}) {
+)(function({ attributes, setAttributes, backgroundColor, setBackgroundColor, clientId }) {
     const { svgUrl, width, height, borderRadius, padding } = attributes;
     const [error, setError] = useState('');
     const colorGradientSettings = useMultipleOriginColorsAndGradients();
@@ -50,20 +42,12 @@ const Edit = compose(
     };
 
     const onBackgroundColorChange = (color) => {
-        // Handle theme color object format
-        setBackgroundColor(color);
-        setAttributes({ 
-            backgroundColor: color ? {
-                slug: color.slug,
-                color: color.color,
-                name: color.name
-            } : undefined
-        });
+        setAttributes({ backgroundColor: color });
     };
 
     const blockProps = useBlockProps({
         style: {
-            backgroundColor: backgroundColor?.color || attributes.backgroundColor?.color,
+            backgroundColor: attributes.backgroundColor,
             borderRadius: `${borderRadius}px`,
             padding: `${padding}px`,
             width: `${width}px`,
@@ -97,7 +81,7 @@ const Edit = compose(
                     panelId={clientId}
                     settings={[{
                         label: __('Background Color'),
-                        colorValue: backgroundColor?.color,
+                        colorValue: attributes.backgroundColor,
                         onColorChange: onBackgroundColorChange
                     }]}
                     {...colorGradientSettings}
