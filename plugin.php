@@ -25,12 +25,7 @@ require_once __DIR__ . '/src/svg-block/svg-support.php';
  * Registers blocks using the metadata loaded from the `block.json` files.
  */
 function imagewize_register_blocks() {
-    // Add check to prevent duplicate registration
-    if (!WP_Block_Type_Registry::get_instance()->is_registered('imagewize/svg-block')) {
-        register_block_type(__DIR__ . '/build/svg-block');
-    }
-    if (!WP_Block_Type_Registry::get_instance()->is_registered('imagewize/services-block')) {
-        register_block_type(__DIR__ . '/build/services-block');
-    }
+    register_block_type(__DIR__ . '/build/svg-block');
+    register_block_type(__DIR__ . '/build/services-block');
 }
 add_action('init', 'imagewize_register_blocks', 15); // Higher priority to ensure it runs after other registrations
