@@ -23,7 +23,9 @@ import { withSelect } from '@wordpress/data';
 import './editor.scss';
 
 const Edit = compose(
-    withColors('backgroundColor'),
+    withColors({
+        backgroundColor: 'background-color'
+    }),
     withSelect((select) => ({
         colors: select('core/block-editor').getSettings()?.colors || []
     }))
@@ -48,12 +50,14 @@ const Edit = compose(
     };
 
     const onBackgroundColorChange = (color) => {
-        const colorValue = color?.color || color;
+        // Handle theme color object format
         setBackgroundColor(color);
         setAttributes({ 
-            backgroundColor: {
-                color: colorValue
-            }
+            backgroundColor: color ? {
+                slug: color.slug,
+                color: color.color,
+                name: color.name
+            } : undefined
         });
     };
 

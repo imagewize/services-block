@@ -23,6 +23,22 @@ A WordPress plugin that provides customizable blocks for creating service sectio
 - WordPress 6.7 or higher
 - PHP 7.4 or higher
 - PHP XML extension enabled
+- Theme with Tailwind color support
+
+### Theme Requirements
+
+This plugin requires your theme to support Tailwind colors. If you're using Sage or a similar theme builder, ensure your `bud.config.js` includes:
+
+```javascript
+module.exports = (app) => {
+  app
+    .useTailwindColors()    // Required for SVG block background colors
+    .useTailwindFontFamily()
+    .useTailwindFontSize();
+};
+```
+
+Without proper Tailwind color support in your theme, the SVG block's background color picker may not work as expected.
 
 ## Installation
 
