@@ -21,11 +21,6 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
-/**
- * Import the SVG block to ensure it is loaded before the services block.
- */
-import '../svg-block';
-
 // Import SVG directly
 import wpSvg from './assets/devicon-plain--wordpress-w.svg';
 
