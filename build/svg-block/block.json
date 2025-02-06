@@ -23,7 +23,9 @@
     "backgroundColor": {
       "type": "object",
       "default": {
-        "color": "#3B82F6"
+        "slug": "blue-500",
+        "color": "rgb(59 130 246)",
+        "name": "Blue 500"
       }
     },
     "borderRadius": {
