@@ -48,13 +48,18 @@ const Edit = compose(
     };
 
     const onBackgroundColorChange = (color) => {
+        const colorValue = color?.color || color;
         setBackgroundColor(color);
-        setAttributes({ backgroundColor: color });
+        setAttributes({ 
+            backgroundColor: {
+                color: colorValue
+            }
+        });
     };
 
     const blockProps = useBlockProps({
         style: {
-            backgroundColor: backgroundColor?.color,
+            backgroundColor: backgroundColor?.color || attributes.backgroundColor?.color,
             borderRadius: `${borderRadius}px`,
             padding: `${padding}px`,
             width: `${width}px`,
