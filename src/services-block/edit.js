@@ -54,7 +54,7 @@ export default function Edit({ attributes, setAttributes }) {
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
-							svgUrl: '/src/services-block/assets/devicon-plain--wordpress-w.svg',
+							svgUrl: './assets/devicon-plain--wordpress-w.svg',
 							width: 55,
 							height: 60,
 							backgroundColor: '#3b82f6',
