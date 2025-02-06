@@ -1,6 +1,12 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { 
+import {
+    useBlockProps,
+    InspectorControls,
+    BlockControls
+} from '@wordpress/block-editor';
+import {
+    ToolbarGroup, 
+    ToolbarButton,
     PanelBody,
     RangeControl,
     Button,
@@ -40,6 +46,22 @@ export default function Edit({ attributes, setAttributes }) {
 
     return (
         <>
+            <BlockControls>
+                <ToolbarGroup>
+                    <MediaUpload
+                        onSelect={onSelectSVG}
+                        allowedTypes={['image/svg+xml']}
+                        render={({ open }) => (
+                            <ToolbarButton
+                                onClick={open}
+                                icon="replace"
+                                label={__('Replace SVG')}
+                            />
+                        )}
+                    />
+                </ToolbarGroup>
+            </BlockControls>
+            
             <InspectorControls>
                 <PanelBody title={__('SVG Settings')}>
                     <MediaUpload
