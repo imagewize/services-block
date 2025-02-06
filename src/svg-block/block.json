@@ -23,7 +23,7 @@
         "backgroundColor": {
             "type": "object",
             "default": {
-                "color": "#3b82f6"
+                "color": "#3B82F6"
             }
         },
         "borderRadius": {
