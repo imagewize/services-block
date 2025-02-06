@@ -18,8 +18,6 @@ if (!extension_loaded('xml')) {
     return;
 }
 
-require_once plugin_dir_path(__FILE__) . 'svg-block/svg-handler.php';
-
 class SVGSupport {
     /**
      * Initialize SVG support by adding necessary filters
