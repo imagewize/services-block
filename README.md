@@ -12,10 +12,13 @@ A WordPress plugin that provides customizable blocks for creating service sectio
 
 - **SVG Icon Block**
   - Secure SVG upload and display
-  - Customizable dimensions (width/height)
-  - Background color picker
-  - Adjustable border radius
-  - Configurable padding
+  - SVG Settings:
+    - Customizable SVG width and height
+  - Container Settings:
+    - Background color selection
+    - Border radius control
+    - Padding adjustment
+  - Hover animations
   - Safe SVG sanitization
 
 ## Requirements
@@ -47,27 +50,51 @@ Or manually:
 1. Add a new block
 2. Search for "SVG Icon"
 3. Upload your SVG file using the block toolbar
-4. Adjust settings in the sidebar:
-   - Width and height
-   - Background color
+4. Adjust SVG Settings in the sidebar:
+   - SVG width and height
+5. Customize Container Settings:
+   - Background color (supports theme colors)
    - Border radius
    - Padding
+6. Use the toolbar "Replace" button to change SVG
 
 ## Security
 
 The SVG support includes several security measures:
-- SVG file validation
-- Removal of potentially harmful elements
-- Sanitization of attributes
-- Prevention of XSS attacks
+
+### SVG Sanitization
+- Validates proper XML structure
+- Removes potentially harmful elements:
+  - PHP tags
+  - Script tags
+  - Event handlers (onclick, onload, etc.)
+  - JavaScript URLs
+  - Data URLs
+  - External namespace declarations
+- Uses PHP's DOMDocument for secure parsing
+- Requires PHP XML extension
+- Sanitizes attributes before saving
+- Validates MIME type (image/svg+xml)
+
+Common sanitized patterns:
+- `<script>` tags
+- `onclick="alert(1)"`
+- `href="javascript:alert(1)"`
+- `xlink:href="data:text/plain,alert(1)"`
+- `xmlns:evil="http://evil.com"`
+
+### File Handling
+- Validates SVG files during upload
+- Checks proper MIME types
+- Prevents non-SVG file uploads
+- Maintains aspect ratio during display
 
 ## Development
 
 Built using:
 - @wordpress/create-block
 - React
-- Tailwind CSS
-
+- sass
 ### Build Process
 
 ```bash
