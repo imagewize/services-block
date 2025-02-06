@@ -80,7 +80,7 @@ const Edit = compose(
                 <ColorGradientSettingsDropdown
                     panelId={clientId}
                     settings={[{
-                        label: __('Background Color'),
+                        label: __('Container Background'),
                         colorValue: attributes.backgroundColor,
                         onColorChange: onBackgroundColorChange
                     }]}
@@ -89,11 +89,11 @@ const Edit = compose(
             </InspectorControls>
 
             <InspectorControls>
-                <PanelBody title={__('SVG Settings')}>
+                <PanelBody title={__('SVG Settings')} initialOpen={true}>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     
                     <RangeControl
-                        label={__('Width (px)')}
+                        label={__('SVG Width (px)')}
                         value={width}
                         onChange={(value) => setAttributes({ width: value })}
                         min={20}
@@ -101,25 +101,27 @@ const Edit = compose(
                     />
                     
                     <RangeControl
-                        label={__('Height (px)')}
+                        label={__('SVG Height (px)')}
                         value={height}
                         onChange={(value) => setAttributes({ height: value })}
                         min={20}
                         max={200}
+                    />
+                </PanelBody>
+
+                <PanelBody title={__('Container Settings')} initialOpen={true}>
+                    <RangeControl
+                        label={__('Padding (px)')}
+                        value={padding}
+                        onChange={(value) => setAttributes({ padding: value })}
+                        min={0}
+                        max={50}
                     />
                     
                     <RangeControl
                         label={__('Border Radius (px)')}
                         value={borderRadius}
                         onChange={(value) => setAttributes({ borderRadius: value })}
-                        min={0}
-                        max={50}
-                    />
-                    
-                    <RangeControl
-                        label={__('Padding (px)')}
-                        value={padding}
-                        onChange={(value) => setAttributes({ padding: value })}
                         min={0}
                         max={50}
                     />
