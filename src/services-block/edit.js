@@ -52,12 +52,7 @@ export default function Edit({ attributes, setAttributes }) {
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
-							svgUrl: wpSvg,  // Use imported SVG here
-							width: 55,
-							height: 60,
-							backgroundColor: '#3b82f6',
-							borderRadius: 8,
-							padding: 20
+							svgUrl: wpSvg  // Only set the SVG URL, rest uses defaults from block.json
 						}]
 					]],
 					['core/column', { width: '80%' }, [

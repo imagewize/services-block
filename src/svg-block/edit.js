@@ -48,13 +48,11 @@ const Edit = compose(
     const blockProps = useBlockProps({
         style: {
             backgroundColor: attributes.backgroundColor,
-            borderRadius: `${borderRadius}px`,
-            padding: `${padding}px`,
-            width: `${width}px`,
-            height: `${height}px`,
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            '--svg-background': attributes.backgroundColor,
+            '--svg-width': `${width}px`,
+            '--svg-height': `${height}px`,
+            '--svg-border-radius': `${borderRadius}px`,
+            '--svg-padding': `${padding}px`
         }
     });
 

@@ -30,7 +30,7 @@
     },
     "padding": {
       "type": "number",
-      "default": 20
+      "default": 5
     }
   },
   "supports": {
