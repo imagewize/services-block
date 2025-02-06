@@ -3,20 +3,19 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    box-sizing: border-box;
     
+    // Container styles with vars
     width: var(--svg-width, 50px);
     height: var(--svg-height, 50px);
     background-color: var(--svg-background, #3B82F6);
     border-radius: var(--svg-border-radius, 8px);
     padding: var(--svg-padding, 20px);
-    box-sizing: border-box;  // Add this to handle padding correctly
     
     img {
         display: block;
-        max-width: 100%;
-        max-height: 100%;
-        width: 100% !important;  // Force width
-        height: 100% !important; // Force height
+        width: calc(var(--svg-width, 50px) - (var(--svg-padding, 20px) * 2)) !important;
+        height: calc(var(--svg-height, 50px) - (var(--svg-padding, 20px) * 2)) !important;
         object-fit: contain;
         transition: transform 0.3s ease;
     }

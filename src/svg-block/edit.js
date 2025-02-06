@@ -131,11 +131,6 @@ const Edit = compose(
                     <img 
                         src={svgUrl} 
                         alt=""
-                        style={{ 
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain'
-                        }}
                     />
                 ) : (
                     <p>{__('Upload an SVG')}</p>
