@@ -88,4 +88,12 @@
             font-size: var(--wp--preset--font-size--base, 1rem); // Changed from --lg to --base
         }
     }
+
+    .wp-block-heading {
+        text-align: center;
+        width: 100%;
+        &[style*="center"] {
+            justify-content: center;
+        }
+    }
 }
