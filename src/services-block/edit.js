@@ -53,7 +53,14 @@ export default function Edit({ attributes, setAttributes }) {
 			className: 'mx-auto max-w-2xl text-xl leading-relaxed mb-12 text-textBodyGray font-open-sans font-light'
 		}],
 		['core/columns', {}, [
-			['core/column', {}, [
+			['core/column', {
+				backgroundColor: 'white',
+				style: {
+					spacing: {
+						padding: '1.5rem'
+					}
+				}
+			}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
@@ -94,7 +101,14 @@ export default function Edit({ attributes, setAttributes }) {
 					]]
 				]]
 			]],
-			['core/column', {}, [
+			['core/column', {
+				backgroundColor: 'white',
+				style: {
+					spacing: {
+						padding: '1.5rem'
+					}
+				}
+			}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
@@ -137,7 +151,14 @@ export default function Edit({ attributes, setAttributes }) {
 			]],
 		]],
 		['core/columns', {}, [
-			['core/column', {}, [
+			['core/column', {
+				backgroundColor: 'white',
+				style: {
+					spacing: {
+						padding: '1.5rem'
+					}
+				}
+			}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
@@ -178,7 +199,14 @@ export default function Edit({ attributes, setAttributes }) {
 					]]
 				]]
 			]],
-			['core/column', {}, [
+			['core/column', {
+				backgroundColor: 'white',
+				style: {
+					spacing: {
+						padding: '1.5rem'
+					}
+				}
+			}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
@@ -221,7 +249,14 @@ export default function Edit({ attributes, setAttributes }) {
 			]],
 		]],
 		['core/columns', {}, [
-			['core/column', {}, [
+			['core/column', {
+				backgroundColor: 'white',
+				style: {
+					spacing: {
+						padding: '1.5rem'
+					}
+				}
+			}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
@@ -262,7 +297,14 @@ export default function Edit({ attributes, setAttributes }) {
 					]]
 				]]
 			]],
-			['core/column', {}, [
+			['core/column', {
+				backgroundColor: 'white',
+				style: {
+					spacing: {
+						padding: '1.5rem'
+					}
+				}
+			}, [
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
