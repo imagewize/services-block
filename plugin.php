@@ -1,15 +1,13 @@
 <?php
 /**
- * Plugin Name:       Imagewize Services Blocks
- * Description:       A collection of blocks featuring a Services Container block for creating service sections and an SVG block for displaying customizable SVG icons with background colors and styling options.
- * Version:           0.1.0
+ * Plugin Name: Imagewize Services Blocks
+ * Description: A collection of blocks featuring a Services Container block for creating service sections and an SVG block.
+ * Version: 0.1.0
  * Requires at least: 6.7
- * Requires PHP:      7.4
- * Author:            Imagewize
- * Author URI:        https://imagewize.com
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       imagewize-services-blocks
+ * Requires PHP: 7.4
+ * Author: Imagewize
+ * License: GPL-2.0-or-later
+ * Text Domain: imagewize-services-block
  *
  * @package Imagewize
  */
@@ -18,14 +16,19 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Include SVG support functionality
-require_once __DIR__ . '/src/svg-block/svg-support.php';
+define('SERVICES_BLOCK_DIR', untrailingslashit(plugin_dir_path(__FILE__)));
 
-/**
- * Registers blocks using the metadata loaded from the `block.json` files.
- */
-function imagewize_register_blocks() {
-    register_block_type(__DIR__ . '/build/svg-block');
-    register_block_type(__DIR__ . '/build/services-block');
+class Imagewize_Services_Block {
+    const VERSION = '0.1.0';
+
+    public static function register() {
+        add_action('init', [self::class, 'register_blocks']);
+    }
+
+    public static function register_blocks() {
+        register_block_type(SERVICES_BLOCK_DIR . '/build/svg-block');
+        register_block_type(SERVICES_BLOCK_DIR . '/build/services-block');
+    }
 }
-add_action('init', 'imagewize_register_blocks', 15); // Higher priority to ensure it runs after other registrations
+
+Imagewize_Services_Block::register();

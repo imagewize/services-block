@@ -23,4 +23,10 @@
     &:hover img {
         transform: scale(1.1);
     }
+
+    // Mobile styles
+    @media (max-width: 781px) {
+        display: table;  // Change to table display for better centering
+        margin: 0 auto;
+    }
 }

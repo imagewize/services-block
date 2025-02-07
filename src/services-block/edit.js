@@ -96,12 +96,19 @@ export default function Edit({ attributes, setAttributes }) {
 				}
 			}, [
 				['core/columns', {}, [
-					['core/column', { width: '20%' }, [
+					['core/column', { 
+						width: '20%',
+						className: 'icon-column'
+					}, [
 						['imagewize/svg-block', {
-							svgUrl: wpSvg
+							svgUrl: wpSvg,
+							className: 'aligncenter'
 						}]
 					]],
-					['core/column', { width: '80%' }, [
+					['core/column', { 
+						width: '80%',
+						className: 'content-column'
+					}, [
 						['core/heading', { 
 							level: 3, 
 							content: 'WordPress Sites', 
@@ -134,7 +141,7 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]]
 				]]
-			]],
+				]],
 			['core/column', {
 				backgroundColor: 'white',
 				style: {
@@ -144,12 +151,18 @@ export default function Edit({ attributes, setAttributes }) {
 				}
 			}, [
 				['core/columns', {}, [
-					['core/column', { width: '20%' }, [
+					['core/column', { 
+						width: '20%',
+						className: 'icon-column'
+					}, [
 						['imagewize/svg-block', {
 							svgUrl: wooCommerceSvg 
 						}]
 					]],
-					['core/column', { width: '80%' }, [
+					['core/column', { 
+						width: '80%',
+						className: 'content-column'
+					}, [
 						['core/heading', { 
 							level: 3, 
 							content: 'E-Commerce Sites', 
@@ -194,12 +207,19 @@ export default function Edit({ attributes, setAttributes }) {
 				}
 			}, [
 				['core/columns', {}, [
-					['core/column', { width: '20%' }, [
+					['core/column', { 
+						width: '20%',
+						className: 'icon-column'
+					}, [
 						['imagewize/svg-block', {
-							svgUrl: hostingSvg
+							svgUrl: hostingSvg,
+							className: 'aligncenter'
 						}]
 					]],
-					['core/column', { width: '80%' }, [
+					['core/column', { 
+						width: '80%',
+						className: 'content-column'
+					}, [
 						['core/heading', { 
 							level: 3, 
 							content: 'Hosting', 
@@ -242,12 +262,19 @@ export default function Edit({ attributes, setAttributes }) {
 				}
 			}, [
 				['core/columns', {}, [
-					['core/column', { width: '20%' }, [
+					['core/column', { 
+						width: '20%',
+						className: 'icon-column'
+					}, [
 						['imagewize/svg-block', {
-							svgUrl: speedOptimizationSvg 
+							svgUrl: speedOptimizationSvg,
+							className: 'aligncenter'
 						}]
 					]],
-					['core/column', { width: '80%' }, [
+					['core/column', { 
+						width: '80%',
+						className: 'content-column'
+					}, [
 						['core/heading', { 
 							level: 3, 
 							content: 'Speed Optimization', 
@@ -292,12 +319,19 @@ export default function Edit({ attributes, setAttributes }) {
 				}
 			}, [
 				['core/columns', {}, [
-					['core/column', { width: '20%' }, [
+					['core/column', { 
+						width: '20%',
+						className: 'icon-column'
+					}, [
 						['imagewize/svg-block', {
-							svgUrl: shopifySvg
+							svgUrl: shopifySvg,
+							className: 'aligncenter'
 						}]
 					]],
-					['core/column', { width: '80%' }, [
+					['core/column', { 
+						width: '80%',
+						className: 'content-column'
+					}, [
 						['core/heading', { 
 							level: 3, 
 							content: 'Shopify', 
@@ -340,12 +374,19 @@ export default function Edit({ attributes, setAttributes }) {
 				}
 			}, [
 				['core/columns', {}, [
-					['core/column', { width: '20%' }, [
+					['core/column', { 
+						width: '20%',
+						className: 'icon-column'
+					}, [
 						['imagewize/svg-block', {
-							svgUrl: laravelSvg 
+							svgUrl: laravelSvg,
+							className: 'aligncenter'
 						}]
 					]],
-					['core/column', { width: '80%' }, [
+					['core/column', { 
+						width: '80%',
+						className: 'content-column'
+					}, [
 						['core/heading', { 
 							level: 3, 
 							content: 'Laravel', 
