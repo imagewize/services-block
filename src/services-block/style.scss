@@ -54,6 +54,24 @@
             border-radius: 0.5rem;
             transition: all 0.3s ease;
             
+            @media (max-width: 781px) {
+                .wp-block-columns {
+                    .wp-block-column {
+                        text-align: center;
+                        
+                        &:first-child {
+                            display: flex;
+                            justify-content: center;
+                            margin-bottom: 1rem;
+                        }
+                    }
+                }
+                
+                .service-title {
+                    text-align: center;
+                }
+            }
+            
             &:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
