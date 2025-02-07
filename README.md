@@ -12,6 +12,7 @@ A WordPress plugin that provides customizable blocks for creating service sectio
 
 - **SVG Icon Block**
   - Secure SVG upload and display
+  - Support for [Iconify](https://icon-sets.iconify.design/) icons
   - SVG Settings:
     - Customizable SVG width and height
   - Container Settings:
@@ -95,6 +96,8 @@ Built using:
 - @wordpress/create-block
 - React
 - sass
+- [Iconify](https://icon-sets.iconify.design/)
+
 ### Build Process
 
 ```bash
