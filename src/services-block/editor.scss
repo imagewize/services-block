@@ -5,8 +5,9 @@
  */
 
 .wp-block-imagewize-services-block {
-	border: 1px dotted #f00;
+    border: 1px dotted #f00;
 
+    // Keep only layout related styles
     .block-editor-inner-blocks {
         width: 100%;
     }
@@ -17,17 +18,11 @@
         gap: 2rem;
     }
 
-    .service-icon {
-        input {
-            background: transparent;
-            border: none;
-            color: white;
-            width: 100%;
-            
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.7);
-            }
-        }
+    // Remove any typography styles that might conflict with client customization
+    .service-title,
+    .service-body {
+        // Only maintain spacing/layout
+        margin-bottom: 1rem;
     }
 
     .wp-block-row {
@@ -42,5 +37,17 @@
 
     .wp-block-column {
         margin: 0;
+    }
+
+    .wp-block-heading,
+    .wp-block-paragraph {
+        &.mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        &.max-w-2xl {
+            max-width: 42rem;
+        }
     }
 }
