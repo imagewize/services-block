@@ -22,7 +22,8 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import './editor.scss';
 
 // Import SVG directly
-import wpSvg from './assets/devicon-plain--wordpress-w.svg';
+import wpSvg from './assets/wordpress.svg';
+import eCommerceSvg from './assets/shop.svg';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -52,18 +53,28 @@ export default function Edit({ attributes, setAttributes }) {
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
-							svgUrl: wpSvg  // Only set the SVG URL, rest uses defaults from block.json
+							svgUrl: wpSvg
 						}]
 					]],
 					['core/column', { width: '80%' }, [
 						['core/heading', { level: 3, content: 'WordPress Sites', className: 'service-title' }],
-						['core/paragraph', { content: 'Service description here...', className: 'service-body' }]
+						['core/paragraph', { content: 'Need a website that stands out? At Imagewize, we design custom WordPress themes and plugins tailored to your brand. Get a unique design and functionality that goes beyond basic templates, delivering a website that truly reflects your business.', className: 'service-body' }]
 					]]
 				]]
 			]],
 			['core/column', {}, [
-				// Similar nested structure for second service
-			]]
+				['core/columns', {}, [
+					['core/column', { width: '20%' }, [
+						['imagewize/svg-block', {
+							svgUrl: eCommerceSvg 
+						}]
+					]],
+					['core/column', { width: '80%' }, [
+						['core/heading', { level: 3, content: 'E-Commerce Sites', className: 'service-title' }],
+						['core/paragraph', { content: 'For years, we’ve specialized in creating custom WooCommerce & Shopify stores, combining beautiful design with seamless functionality. Our tailored e-commerce solutions are built to meet your unique business needs and deliver an exceptional shopping experience for your customers.', className: 'service-body' }]
+					]]
+				]]
+			]],
 		]],
 		// Repeat for other rows
 	];
