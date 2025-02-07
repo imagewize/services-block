@@ -41,46 +41,51 @@ export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	
 	const TEMPLATE = [
-		['core/group', {
-			layout: { type: 'constrained' }
-		}, [
-			['core/heading', {
-				level: 2,
-				content: 'Our Awesome Services.',
-				align: 'center',
-				className: 'text-3xl text-center font-bold font-open-sans mb-12',
-				style: {
-					typography: {
-						fontWeight: '700',
-						fontStyle: 'normal',
-						fontFamily: 'var(--wp--preset--font-family--open-sans)'
-					},
-					spacing: {
-						margin: {
-							bottom: '3rem'
+		['core/heading', {
+			level: 2,
+			content: 'Our Awesome Services.',
+			textAlign: 'center',
+			align: 'center',
+			className: 'text-3xl text-center font-bold font-open-sans mb-12',
+			style: {
+				typography: {
+					fontWeight: '700',
+					fontStyle: 'normal',
+					fontFamily: 'var(--wp--preset--font-family--open-sans)'
+				},
+				spacing: {
+					margin: {
+						bottom: '3rem'
+					}
+				}
+			}
+		}],
+		['core/paragraph', {
+			content: 'We live and breathe web design, e-commerce, hosting, and website maintenance. If you need a stunning website for your products or services, a tailored e-commerce solution, speed optimization, or ongoing site maintenance, we\'re here to help you succeed.',
+			align: 'center',
+			className: 'text-xl leading-relaxed mb-12 text-textBodyGray font-open-sans',
+			style: {
+				typography: {
+					fontWeight: '400',
+					fontStyle: 'normal',
+					fontFamily: 'var(--wp--preset--font-family--open-sans)',
+					fontSize: 'var(--wp--preset--font-size--xl)'
+				},
+				spacing: {
+					margin: {
+						bottom: '3rem'
+					}
+				},
+				elements: {
+					link: {
+						color: {
+							text: 'var:preset|color|textbodygray'
 						}
 					}
 				}
-			}],
-			['core/paragraph', {
-				content: 'We live and breathe web design, e-commerce, hosting, and website maintenance. If you need a stunning website for your products or services, a tailored e-commerce solution, speed optimization, or ongoing site maintenance, we\'re here to help you succeed.',
-				align: 'center',
-				className: 'text-xl leading-relaxed mb-12 text-textBodyGray font-open-sans',
-				style: {
-					typography: {
-						fontWeight: '400',
-						fontStyle: 'normal',
-						fontFamily: 'var(--wp--preset--font-family--open-sans)',
-						fontSize: 'var(--wp--preset--font-size--xl)'
-					},
-					spacing: {
-						margin: {
-							bottom: '3rem'
-						}
-					}
-				}
-			}]
-		]],
+			},
+			textColor: 'textbodygray'
+		}],
 		['core/columns', {}, [
 			['core/column', {
 				backgroundColor: 'white',

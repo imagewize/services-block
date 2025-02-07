@@ -99,7 +99,17 @@
         }
         
         &.font-open-sans {
-            font-family: var(--wp--preset--font-family--open-sans);
+            font-family: var(--services-font-family);
+        }
+    }
+
+    .wp-block-paragraph {
+        &.has-text-align-center {
+            text-align: center;
+        }
+        
+        &.has-textbodygray-color {
+            color: var(--wp--preset--color--textbodygray, #98999a);
         }
     }
 }
