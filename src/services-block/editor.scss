@@ -37,6 +37,22 @@
 
     .wp-block-column {
         margin: 0;
+
+        @media (max-width: 781px) {
+            .wp-block-imagewize-svg-block {
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .service-title {
+                text-align: center;
+            }
+
+            &[style*="flex-basis:20%"] {
+                display: flex;
+                justify-content: center;
+            }
+        }
     }
 
     .wp-block-heading,
