@@ -61,8 +61,36 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]],
 					['core/column', { width: '80%' }, [
-						['core/heading', { level: 3, content: 'WordPress Sites', className: 'service-title' }],
-						['core/paragraph', { content: 'Need a website that stands out? At Imagewize, we design custom WordPress themes and plugins tailored to your brand. Get a unique design and functionality that goes beyond basic templates, delivering a website that truly reflects your business.', className: 'service-body' }]
+						['core/heading', { 
+							level: 3, 
+							content: 'WordPress Sites', 
+							className: 'service-title',
+							fontSize: 'lg',
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									fontStyle: 'normal', 
+									fontWeight: '600'
+								},
+								color: {
+									text: '#000000'
+								}
+							}
+						}],
+						['core/paragraph', { 
+							content: 'Need a website that stands out? At Imagewize, we design custom WordPress themes and plugins tailored to your brand. Get a unique design and functionality that goes beyond basic templates, delivering a website that truly reflects your business.', 
+							className: 'service-body',
+							fontSize: 'base',  // Changed from 'lg' to 'base'
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									lineHeight: 1.6 
+								},
+								color: {
+									text: '#98999a'
+								}
+							}
+						}]
 					]]
 				]]
 			]],
@@ -74,8 +102,36 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]],
 					['core/column', { width: '80%' }, [
-						['core/heading', { level: 3, content: 'E-Commerce Sites', className: 'service-title' }],
-						['core/paragraph', { content: 'For years, we’ve specialized in creating custom WooCommerce & Shopify stores, combining beautiful design with seamless functionality. Our tailored e-commerce solutions are built to meet your unique business needs and deliver an exceptional shopping experience for your customers.', className: 'service-body' }]
+						['core/heading', { 
+							level: 3, 
+							content: 'E-Commerce Sites', 
+							className: 'service-title',
+							fontSize: 'lg',
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									fontStyle: 'normal', 
+									fontWeight: '600'
+								},
+								color: {
+									text: '#000000'
+								}
+							}
+						}],
+						['core/paragraph', { 
+							content: 'For years, we’ve specialized in creating custom WooCommerce & Shopify stores, combining beautiful design with seamless functionality. Our tailored e-commerce solutions are built to meet your unique business needs and deliver an exceptional shopping experience for your customers.', 
+							className: 'service-body',
+							fontSize: 'base',  // Changed from 'lg' to 'base'
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									lineHeight: 1.6 
+								},
+								color: {
+									text: '#98999a'
+								}
+							}
+						}]
 					]]
 				]]
 			]],
@@ -89,8 +145,36 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]],
 					['core/column', { width: '80%' }, [
-						['core/heading', { level: 3, content: 'Hosting', className: 'service-title' }],
-						['core/paragraph', { content: 'We are dead serious about creating the best WordPress server setup you could need. We love delivering quality. We work with partners who feel the same way about quality. If you need something sloppy and fast you are at the wrong address.', className: 'service-body' }]
+						['core/heading', { 
+							level: 3, 
+							content: 'Hosting', 
+							className: 'service-title',
+							fontSize: 'lg',
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									fontStyle: 'normal', 
+									fontWeight: '600'
+								},
+								color: {
+									text: '#000000'
+								}
+							}
+						}],
+						['core/paragraph', { 
+							content: 'We are dead serious about creating the best WordPress server setup you could need. We love delivering quality. We work with partners who feel the same way about quality. If you need something sloppy and fast you are at the wrong address.', 
+							className: 'service-body',
+							fontSize: 'base',  // Changed from 'lg' to 'base'
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									lineHeight: 1.6 
+								},
+								color: {
+									text: '#98999a'
+								}
+							}
+						}]
 					]]
 				]]
 			]],
@@ -102,8 +186,36 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]],
 					['core/column', { width: '80%' }, [
-						['core/heading', { level: 3, content: 'Speed Optimization', className: 'service-title' }],
-						['core/paragraph', { content: 'Boost your WordPress and WooCommerce site’s speed with image optimization, caching, and rendering-block fixes. Faster load times improve user experience and technical SEO, driving better rankings and conversions!', className: 'service-body' }]
+						['core/heading', { 
+							level: 3, 
+							content: 'Speed Optimization', 
+							className: 'service-title',
+							fontSize: 'lg',
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									fontStyle: 'normal', 
+									fontWeight: '600'
+								},
+								color: {
+									text: '#000000'
+								}
+							}
+						}],
+						['core/paragraph', { 
+							content: 'Boost your WordPress and WooCommerce site’s speed with image optimization, caching, and rendering-block fixes. Faster load times improve user experience and technical SEO, driving better rankings and conversions!', 
+							className: 'service-body',
+							fontSize: 'base',  // Changed from 'lg' to 'base'
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									lineHeight: 1.6 
+								},
+								color: {
+									text: '#98999a'
+								}
+							}
+						}]
 					]]
 				]]
 			]],
@@ -117,8 +229,36 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]],
 					['core/column', { width: '80%' }, [
-						['core/heading', { level: 3, content: 'Shopify', className: 'service-title' }],
-						['core/paragraph', { content: 'Transform your online business with our expert Shopify development services. We create stunning, conversion-focused Shopify stores with custom themes and advanced features. From setup to optimization, we\'ll help you build a powerful e-commerce presence that drives sales.', className: 'service-body' }]
+						['core/heading', { 
+							level: 3, 
+							content: 'Shopify', 
+							className: 'service-title',
+							fontSize: 'lg',
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									fontStyle: 'normal', 
+									fontWeight: '600'
+								},
+								color: {
+									text: '#000000'
+								}
+							}
+						}],
+						['core/paragraph', { 
+							content: 'Transform your online business with our expert Shopify development services. We create stunning, conversion-focused Shopify stores with custom themes and advanced features. From setup to optimization, we\'ll help you build a powerful e-commerce presence that drives sales.', 
+							className: 'service-body',
+							fontSize: 'base',  // Changed from 'lg' to 'base'
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									lineHeight: 1.6 
+								},
+								color: {
+									text: '#98999a'
+								}
+							}
+						}]
 					]]
 				]]
 			]],
@@ -130,8 +270,36 @@ export default function Edit({ attributes, setAttributes }) {
 						}]
 					]],
 					['core/column', { width: '80%' }, [
-						['core/heading', { level: 3, content: 'Laravel', className: 'service-title' }],
-						['core/paragraph', { content: 'Sometimes you need something bigger, more robust, custom made. Sometimes you need to launch a SaaS or an online platform. You are in luck. Imagewize loves building server environments for custom apps and we love using Laravel / vueJS to launch your dreams.', className: 'service-body' }]
+						['core/heading', { 
+							level: 3, 
+							content: 'Laravel', 
+							className: 'service-title',
+							fontSize: 'lg',
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									fontStyle: 'normal', 
+									fontWeight: '600'
+								},
+								color: {
+									text: '#000000'
+								}
+							}
+						}],
+						['core/paragraph', { 
+							content: 'Sometimes you need something bigger, more robust, custom made. Sometimes you need to launch a SaaS or an online platform. You are in luck. Imagewize loves building server environments for custom apps and we love using Laravel / vueJS to launch your dreams.', 
+							className: 'service-body',
+							fontSize: 'base',  // Changed from 'lg' to 'base'
+							style: {
+								typography: { 
+									fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
+									lineHeight: 1.6 
+								},
+								color: {
+									text: '#98999a'
+								}
+							}
+						}]
 					]]
 				]]
 			]],

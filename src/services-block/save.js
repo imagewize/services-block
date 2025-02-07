@@ -16,11 +16,13 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save() {
-    return (
-        <section id="services" className="py-16 bg-gray-50">
-            <div className="container mx-auto max-w-4xl px-4">
-                <InnerBlocks.Content />
-            </div>
-        </section>
-    );
+	const blockProps = useBlockProps.save();
+	
+	return (
+		<section {...blockProps} className="py-16 bg-gray-50">
+			<div className="container mx-auto max-w-4xl px-4">
+				<InnerBlocks.Content />
+			</div>
+		</section>
+	);
 }
