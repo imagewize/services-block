@@ -24,6 +24,8 @@ import './editor.scss';
 // Import SVG directly
 import wpSvg from './assets/wordpress.svg';
 import eCommerceSvg from './assets/shop.svg';
+import hostingSvg from './assets/hosting.svg';
+import speedOptimizationSvg from './assets/speed.svg';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -72,6 +74,34 @@ export default function Edit({ attributes, setAttributes }) {
 					['core/column', { width: '80%' }, [
 						['core/heading', { level: 3, content: 'E-Commerce Sites', className: 'service-title' }],
 						['core/paragraph', { content: 'For years, we’ve specialized in creating custom WooCommerce & Shopify stores, combining beautiful design with seamless functionality. Our tailored e-commerce solutions are built to meet your unique business needs and deliver an exceptional shopping experience for your customers.', className: 'service-body' }]
+					]]
+				]]
+			]],
+		]],
+		['core/columns', {}, [
+			['core/column', {}, [
+				['core/columns', {}, [
+					['core/column', { width: '20%' }, [
+						['imagewize/svg-block', {
+							svgUrl: hostingSvg
+						}]
+					]],
+					['core/column', { width: '80%' }, [
+						['core/heading', { level: 3, content: 'Hosting', className: 'service-title' }],
+						['core/paragraph', { content: 'We are dead serious about creating the best WordPress server setup you could need. We love delivering quality. We work with partners who feel the same way about quality. If you need something sloppy and fast you are at the wrong address.', className: 'service-body' }]
+					]]
+				]]
+			]],
+			['core/column', {}, [
+				['core/columns', {}, [
+					['core/column', { width: '20%' }, [
+						['imagewize/svg-block', {
+							svgUrl: speedOptimizationSvg 
+						}]
+					]],
+					['core/column', { width: '80%' }, [
+						['core/heading', { level: 3, content: 'Speed Optimization', className: 'service-title' }],
+						['core/paragraph', { content: 'Boost your WordPress and WooCommerce site’s speed with image optimization, caching, and rendering-block fixes. Faster load times improve user experience and technical SEO, driving better rankings and conversions!', className: 'service-body' }]
 					]]
 				]]
 			]],
