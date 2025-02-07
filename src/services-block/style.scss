@@ -92,8 +92,14 @@
     .wp-block-heading {
         text-align: center;
         width: 100%;
-        &[style*="center"] {
-            justify-content: center;
+        margin-bottom: 3rem;
+        
+        &.has-text-align-center {
+            text-align: center;
+        }
+        
+        &.font-open-sans {
+            font-family: var(--wp--preset--font-family--open-sans);
         }
     }
 }

@@ -45,18 +45,19 @@ export default function Edit({ attributes, setAttributes }) {
 			level: 2,
 			content: 'Our Awesome Services.',
 			align: 'center',
+			className: 'text-3xl text-center font-bold font-open-sans mb-12',
 			style: {
 				typography: {
-					fontFamily: 'var(--wp--preset--font-family--open-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)',
-					fontWeight: '700'
+					fontWeight: '700',
+					fontStyle: 'normal',
+					fontFamily: 'var(--wp--preset--font-family--open-sans)'
 				},
 				spacing: {
 					margin: {
 						bottom: '3rem'
 					}
 				}
-			},
-			className: 'text-3xl text-center font-bold font-open-sans mb-12'
+			}
 		}],
 		['core/paragraph', {
 			content: 'We live and breathe web design, e-commerce, hosting, and website maintenance. If you need a stunning website for your products or services, a tailored e-commerce solution, speed optimization, or ongoing site maintenance, we\'re here to help you succeed.',
