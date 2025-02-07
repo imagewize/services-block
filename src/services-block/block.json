@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Services Block",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "editor-ul",
 	"description": "Services section with heading, intro and service items",
 	"supports": {
 		"html": false
