@@ -23,9 +23,11 @@ import './editor.scss';
 
 // Import SVG directly
 import wpSvg from './assets/wordpress.svg';
-import eCommerceSvg from './assets/shop.svg';
 import hostingSvg from './assets/hosting.svg';
 import speedOptimizationSvg from './assets/speed.svg';
+import shopifySvg from './assets/shopify.svg';
+import wooCommerceSvg from './assets/woocommerce.svg';
+import laravelSvg from './assets/laravel.svg';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -68,7 +70,7 @@ export default function Edit({ attributes, setAttributes }) {
 				['core/columns', {}, [
 					['core/column', { width: '20%' }, [
 						['imagewize/svg-block', {
-							svgUrl: eCommerceSvg 
+							svgUrl: wooCommerceSvg 
 						}]
 					]],
 					['core/column', { width: '80%' }, [
@@ -102,6 +104,34 @@ export default function Edit({ attributes, setAttributes }) {
 					['core/column', { width: '80%' }, [
 						['core/heading', { level: 3, content: 'Speed Optimization', className: 'service-title' }],
 						['core/paragraph', { content: 'Boost your WordPress and WooCommerce site’s speed with image optimization, caching, and rendering-block fixes. Faster load times improve user experience and technical SEO, driving better rankings and conversions!', className: 'service-body' }]
+					]]
+				]]
+			]],
+		]],
+		['core/columns', {}, [
+			['core/column', {}, [
+				['core/columns', {}, [
+					['core/column', { width: '20%' }, [
+						['imagewize/svg-block', {
+							svgUrl: shopifySvg
+						}]
+					]],
+					['core/column', { width: '80%' }, [
+						['core/heading', { level: 3, content: 'Shopify', className: 'service-title' }],
+						['core/paragraph', { content: 'Transform your online business with our expert Shopify development services. We create stunning, conversion-focused Shopify stores with custom themes and advanced features. From setup to optimization, we\'ll help you build a powerful e-commerce presence that drives sales.', className: 'service-body' }]
+					]]
+				]]
+			]],
+			['core/column', {}, [
+				['core/columns', {}, [
+					['core/column', { width: '20%' }, [
+						['imagewize/svg-block', {
+							svgUrl: laravelSvg 
+						}]
+					]],
+					['core/column', { width: '80%' }, [
+						['core/heading', { level: 3, content: 'Laravel', className: 'service-title' }],
+						['core/paragraph', { content: 'Sometimes you need something bigger, more robust, custom made. Sometimes you need to launch a SaaS or an online platform. You are in luck. Imagewize loves building server environments for custom apps and we love using Laravel / vueJS to launch your dreams.', className: 'service-body' }]
 					]]
 				]]
 			]],
