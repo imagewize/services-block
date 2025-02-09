@@ -55,6 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
 			textAlign: 'center',
 			align: 'center',
 			className: 'text-3xl text-center font-bold font-open-sans mb-12',
+			textColor: 'black',
 			style: {
 				typography: {
 					fontWeight: '700',
