@@ -8,10 +8,28 @@
   "icon": "editor-ul",
   "description": "Services section with heading, intro and service items",
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true
+    }
   },
   "textdomain": "services-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+  "style": "file:./style-index.css",
+  "attributes": {
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "background": "var(--wp--preset--color--slate-50)"
+        }
+      }
+    }
+  }
 }

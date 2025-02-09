@@ -16,9 +16,7 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save() {
-	const blockProps = useBlockProps.save({
-		className: 'py-16 bg-gray-50'
-	});
+	const blockProps = useBlockProps.save();
 	
 	return (
 		<section {...blockProps}>

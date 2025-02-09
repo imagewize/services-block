@@ -1,149 +1,110 @@
 /**
  * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
  */
 
 .wp-block-imagewize-services-block {
-    border: 1px dotted #f00;
+    // Editor border for block visibility
+    border: 1px dotted #ddd;
 
-    // Keep only layout related styles
-    .block-editor-inner-blocks {
-        width: 100%;
-    }
-    
-    .block-editor-block-list__layout {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    // Remove any typography styles that might conflict with client customization
-    .service-title,
-    .service-body {
-        // Only maintain spacing/layout
-        margin-bottom: 1rem;
-    }
-
-    .wp-block-row {
-        margin-bottom: 2rem;
-        
-        > .block-editor-inner-blocks > .block-editor-block-list__layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-    }
-
-    .wp-block-column {
-        margin: 0;
-
-        @media (max-width: 781px) {
-            .wp-block-imagewize-svg-block {
-                margin: 0 auto;
-                text-align: center;
+    // Main container styles
+    > .block-editor-inner-blocks {
+        > .block-editor-block-list__layout {
+            // Main content container
+            > * {
+                max-width: none;
             }
 
-            .service-title {
-                text-align: center;
-            }
-
-            &[style*="flex-basis:20%"] {
-                display: flex;
-                justify-content: center;
-            }
-
-            .block-editor-block-list__layout {
-                .wp-block-column {
-                    // Center SVG column
-                    &[style*="flex-basis:20%"] {
-                        display: flex;
-                        justify-content: center;
-                        margin-bottom: 1rem;
-                    }
-                    
-                    // Center title column
-                    &[style*="flex-basis:80%"] {
-                        .service-title {
-                            text-align: center;
-                        }
-                    }
-                }
-            }
-
-            // Target the icon column
-            &[style*="flex-basis:20%"] {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            // Target the content column
-            &[style*="flex-basis:80%"] {
-                .service-title {
-                    text-align: center;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
-
-            // Ensure SVG block is centered
-            .wp-block-imagewize-svg-block {
+            // Title and description alignment
+            > [data-type="core/heading"],
+            > [data-type="core/paragraph"] {
                 margin-left: auto;
                 margin-right: auto;
-            }
-
-            .icon-column {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 1rem;
-
-                .wp-block-imagewize-svg-block {
-                    margin: 0 auto;
-                }
-            }
-            
-            .content-column {
-                .service-title {
-                    text-align: center;
-                }
+                max-width: 42rem;
             }
         }
     }
 
-    .wp-block-columns:not(.is-not-stacked-on-mobile) {
-        @media (max-width: 781px) {
-            > .wp-block-column {
-                flex-basis: 100% !important;
+    // Fix columns layout
+    .wp-block-columns {
+        gap: 2rem;
+        margin-bottom: 2rem;
 
-                .wp-block-columns {
-                    > .wp-block-column {
-                        &[style*="flex-basis:20%"] {
-                            display: flex;
-                            justify-content: center;
-                            margin-bottom: 1rem;
-                        }
-                        
-                        &[style*="flex-basis:80%"] {
-                            .service-title {
-                                text-align: center;
-                            }
-                        }
+        // Service box styling
+        > .wp-block-column {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-left: 0;
+            
+            // Inner columns (icon + content)
+            .wp-block-columns {
+                gap: 1rem;
+                margin-bottom: 0;
+
+                > .wp-block-column {
+                    padding: 0;
+
+                    // Icon column
+                    &[data-type="core/column"].icon-column {
+                        flex: 0 0 20%;
+                    }
+
+                    // Content column
+                    &[data-type="core/column"].content-column {
+                        flex: 0 0 80%;
                     }
                 }
             }
         }
     }
 
-    .wp-block-heading,
-    .wp-block-paragraph {
-        &.mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
+    // Service title styles in editor
+    .wp-block-heading.service-title {
+        margin-top: 0;
+        margin-bottom: 1rem;
         
-        &.max-w-2xl {
-            max-width: 42rem;
+        &:after {
+            content: '';
+            display: block;
+            width: 25%;
+            height: 3px;
+            background-color: #d1d5db;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+    }
+
+    // SVG block alignment in editor
+    .wp-block-imagewize-svg-block {
+        margin: 0;
+        
+        svg {
+            width: 100%;
+            height: auto;
+            max-width: 48px;
+        }
+    }
+
+    // Mobile styles
+    @media (max-width: 781px) {
+        .wp-block-columns:not(.is-not-stacked-on-mobile) {
+            > .wp-block-column {
+                margin-left: 0;
+                flex-basis: 100% !important;
+
+                .icon-column {
+                    text-align: center;
+                    margin-bottom: 1rem;
+                }
+
+                .service-title {
+                    text-align: center;
+                    
+                    &:after {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            }
         }
     }
 }
