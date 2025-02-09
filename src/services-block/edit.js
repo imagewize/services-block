@@ -38,15 +38,24 @@ import laravelSvg from './assets/laravel.svg';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps();
+	const { backgroundColor } = attributes;
+	
+	const blockProps = useBlockProps({
+		className: 'py-16',
+		style: { backgroundColor }
+	});
 	
 	const TEMPLATE = [
+		['core/spacer', {
+			height: '50px'
+		}],
 		['core/heading', {
 			level: 2,
 			content: 'Our Awesome Services.',
 			textAlign: 'center',
 			align: 'center',
 			className: 'text-3xl text-center font-bold font-open-sans mb-12',
+			textColor: 'black',
 			style: {
 				typography: {
 					fontWeight: '700',
@@ -88,12 +97,12 @@ export default function Edit({ attributes, setAttributes }) {
 		}],
 		['core/columns', {}, [
 			['core/column', {
-				backgroundColor: 'white',
 				style: {
 					spacing: {
 						padding: '1.5rem'
 					}
-				}
+				},
+				backgroundColor: "white"
 			}, [
 				['core/columns', {}, [
 					['core/column', { 
@@ -143,12 +152,12 @@ export default function Edit({ attributes, setAttributes }) {
 				]]
 				]],
 			['core/column', {
-				backgroundColor: 'white',
 				style: {
 					spacing: {
 						padding: '1.5rem'
 					}
-				}
+				},
+				backgroundColor: "white"
 			}, [
 				['core/columns', {}, [
 					['core/column', { 
@@ -199,12 +208,12 @@ export default function Edit({ attributes, setAttributes }) {
 		]],
 		['core/columns', {}, [
 			['core/column', {
-				backgroundColor: 'white',
 				style: {
 					spacing: {
 						padding: '1.5rem'
 					}
-				}
+				},
+				backgroundColor: "white"
 			}, [
 				['core/columns', {}, [
 					['core/column', { 
@@ -254,12 +263,12 @@ export default function Edit({ attributes, setAttributes }) {
 				]]
 			]],
 			['core/column', {
-				backgroundColor: 'white',
 				style: {
 					spacing: {
 						padding: '1.5rem'
 					}
-				}
+				},
+				backgroundColor: "white"
 			}, [
 				['core/columns', {}, [
 					['core/column', { 
@@ -311,12 +320,12 @@ export default function Edit({ attributes, setAttributes }) {
 		]],
 		['core/columns', {}, [
 			['core/column', {
-				backgroundColor: 'white',
 				style: {
 					spacing: {
 						padding: '1.5rem'
 					}
-				}
+				},
+				backgroundColor: "white"
 			}, [
 				['core/columns', {}, [
 					['core/column', { 
@@ -366,12 +375,12 @@ export default function Edit({ attributes, setAttributes }) {
 				]]
 			]],
 			['core/column', {
-				backgroundColor: 'white',
 				style: {
 					spacing: {
 						padding: '1.5rem'
 					}
-				}
+				},
+				backgroundColor: "white"
 			}, [
 				['core/columns', {}, [
 					['core/column', { 
@@ -425,7 +434,7 @@ export default function Edit({ attributes, setAttributes }) {
 	];
 
 	return (
-		<section {...blockProps} className="py-16 bg-gray-50">
+		<section {...blockProps}>
 			<div className="container mx-auto max-w-4xl px-4">
 				<InnerBlocks 
 					template={TEMPLATE}
