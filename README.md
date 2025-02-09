@@ -6,9 +6,24 @@ A WordPress plugin that provides customizable blocks for creating service sectio
 
 - **Services Container Block**
   - Clean, responsive layout
-  - Customizable background colors
+  - Default slate-50 background color
+  - Customizable background colors through WordPress color picker
   - Inner blocks support for flexible content
   - Tailwind CSS styling
+
+- **Default Editor Settings**
+  - Main heading with default black text color
+  - White background color for service item columns
+  - Adjustable color settings through WordPress editor
+  - Pre-configured spacing and typography
+  - Mobile-responsive layouts
+
+- **Service Items**
+  - White background by default (adjustable)
+  - Hover effects on titles
+  - Decorative underlines with transitions
+  - Responsive two-column layout
+  - Center alignment on mobile
 
 - **SVG Icon Block**
   - Secure SVG upload and display
@@ -21,6 +36,43 @@ A WordPress plugin that provides customizable blocks for creating service sectio
     - Padding adjustment
   - Hover animations
   - Safe SVG sanitization
+
+## Block Settings
+
+### Main Container
+- Background color: Default slate-50 (adjustable)
+- Padding: 16px top/bottom
+- Max width: 4xl (configurable)
+
+### Service Columns
+- Background color: White by default
+- Padding: 1.5rem
+- Border radius: 0.5rem
+- Gap between columns: 2rem
+
+### Typography
+- Main heading: 
+  - Color: Black (adjustable via WordPress color picker)
+  - Font: Open Sans (adjustable via theme fonts)
+  - Weight: 700 (adjustable)
+  - Size: 3xl (adjustable via font size picker)
+  - Alignment: Center (adjustable)
+
+- Service titles:
+  - Color: Black (adjustable via WordPress color picker)
+  - Font: Open Sans (adjustable via theme fonts)
+  - Weight: 600 (adjustable)
+  - Size: Large (adjustable via font size picker)
+  - Decorative underline with hover effect
+
+- Body text:
+  - Color: Gray (adjustable via WordPress color picker)
+  - Font: Open Sans (adjustable via theme fonts)
+  - Size: Base (adjustable via font size picker)
+  - Line height: 1.6 (adjustable)
+  - Weight: 400 (adjustable)
+
+All typography settings can be adjusted through the WordPress block editor's Typography panel in the sidebar.
 
 ## Requirements
 
