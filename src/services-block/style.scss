@@ -7,13 +7,8 @@
 
 .wp-block-imagewize-services-block {
 	background-color: #21759b;
-	color: #fff;
 	padding: 2px;
 
-    /* Service Title Styles
-     * 
-     * Used for all service headings in the grid
-     */
     .wp-block-heading.service-title {
         
         // Add decorative underline
@@ -38,38 +33,13 @@
         }
     }
 
-    .wp-block-row {
-        margin-bottom: 2rem;
-        
-        > .wp-block-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-    }
-
-    .wp-block-column {
-        margin: 0;
-    }
-
     .wp-block-columns {
         margin-bottom: 2rem;
         gap: 2rem;
         
         .wp-block-column {
-            background: white;
-            padding: 1.5rem;
             border-radius: 0.5rem;
             transition: all 0.3s ease;
-            
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                
-                .service-icon {
-                    background-color: #ef4444;
-                }
-            }
         }
 
         @media (max-width: 781px) {
@@ -77,8 +47,6 @@
             padding-right: 0;
 
             .icon-column {
-                padding-left: 1rem;
-                padding-right: 1rem;
                 text-align: center;
             }
             
@@ -98,10 +66,5 @@
             width: 50%;
             background-color: #374151;
         }
-    }
-
-    .service-body {
-        color: #4b5563;
-        line-height: 1.7;
     }
 }
