@@ -54,8 +54,9 @@ export default function Edit({ attributes, setAttributes }) {
 			content: 'Our Awesome Services.',
 			textAlign: 'center',
 			align: 'center',
-			className: 'text-3xl text-center font-bold font-open-sans mb-12',
+			className: 'mb-12',  // Only keep margin class as it's not easily set in block settings
 			textColor: 'black',
+			fontSize: '3xl',     // Move size to block setting
 			style: {
 				typography: {
 					fontWeight: '700',
@@ -72,13 +73,15 @@ export default function Edit({ attributes, setAttributes }) {
 		['core/paragraph', {
 			content: 'We live and breathe web design, e-commerce, hosting, and website maintenance. If you need a stunning website for your products or services, a tailored e-commerce solution, speed optimization, or ongoing site maintenance, we\'re here to help you succeed.',
 			align: 'center',
-			className: 'text-xl leading-relaxed mb-12 text-textBodyGray font-open-sans',
+			className: 'mb-12', // Keep margin class only
+			fontSize: 'xl',     // Use WordPress font size setting
+			textColor: 'slate-600', // Use theme color with fallback
 			style: {
 				typography: {
 					fontWeight: '400',
 					fontStyle: 'normal',
 					fontFamily: 'var(--wp--preset--font-family--open-sans)',
-					fontSize: 'var(--wp--preset--font-size--xl)'
+					lineHeight: '1.75' // Replace leading-relaxed with actual line height
 				},
 				spacing: {
 					margin: {
@@ -88,12 +91,11 @@ export default function Edit({ attributes, setAttributes }) {
 				elements: {
 					link: {
 						color: {
-							text: 'var:preset|color|textbodygray'
+							text: 'var(--wp--preset--color--slate-600)'
 						}
 					}
 				}
-			},
-			textColor: 'textbodygray'
+			}
 		}],
 		['core/columns', {}, [
 			['core/column', {

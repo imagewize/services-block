@@ -6,45 +6,42 @@
  */
 
 .wp-block-imagewize-services-block {
-    padding: 2px;
-
+    // Remove padding as it's handled by block settings now
+    
     .wp-block-heading.service-title {
-        
-        // Add decorative underline
+        // Keep only decorative underline styles
         &:after {
             content: '';
             display: block;
             width: 25%;
             height: 3px;
-            background-color: #d1d5db;
+            background-color: var(--wp--preset--color--slate-200, #d1d5db);
             margin-top: 0.5rem;
             transition: all 0.3s;
-        }
-    
-        // Center text and underline on mobile
-        @media (max-width: 781px) {
-            text-align: center;
-        
-            &:after {
-                margin-left: auto;
-                margin-right: auto;
-            }
         }
     }
 
     .wp-block-columns {
-        margin-bottom: 2rem;
         gap: 2rem;
+        margin-bottom: 2rem;
         
         .wp-block-column {
             border-radius: 0.5rem;
             transition: all 0.3s ease;
         }
+    }
 
-        @media (max-width: 781px) {
-            padding-left: 0;
-            padding-right: 0;
+    /* Service Title Hover Effects */
+    .wp-block-column:hover {
+        h3.wp-block-heading.service-title:after {
+            width: 50%;
+            background-color: var(--wp--preset--color--slate-700, #374151);
+        }
+    }
 
+    // Mobile styles
+    @media (max-width: 781px) {
+        .wp-block-columns {
             .icon-column {
                 text-align: center;
             }
@@ -54,16 +51,14 @@
                 padding-right: 1rem;
             }
         }
-    }
 
-
-    /* Service Title Hover Effects
-     * Applied when hovering over the parent column
-     */
-    .wp-block-column:hover {
-        h3.wp-block-heading.service-title.has-text-color:after {
-            width: 50%;
-            background-color: #374151;
+        .wp-block-heading.service-title {
+            text-align: center;
+            
+            &:after {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     }
 }
