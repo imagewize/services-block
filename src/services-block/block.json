@@ -9,6 +9,7 @@
 	"description": "Services section with heading, intro and service items",
 	"supports": {
 		"html": false,
+			"align": ["wide", "full"],
 		"color": {
 			"background": true,
 			"text": true,
@@ -30,6 +31,10 @@
 					"background": "var(--wp--preset--color--slate-50)"
 				}
 			}
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
 		},
 		"titleUnderlineColor": {
 			"type": "string",
