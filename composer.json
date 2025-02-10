@@ -1,0 +1,35 @@
+{
+    "name": "imagewize/services-block",
+    "description": "A customizable services section block with SVG icon support for WordPress Gutenberg editor",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Jasper Frumau",
+            "email": "jasper@imagewize.com",
+            "homepage": "https://imagewize.com"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "block-editor",
+        "gutenberg",
+        "services",
+        "svg",
+        "icons"
+    ],
+    "support": {
+        "issues": "https://github.com/imagewize/services-block/issues",
+        "source": "https://github.com/imagewize/services-block"
+    },
+    "require": {
+        "php": ">=8.0",
+        "composer/installers": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
