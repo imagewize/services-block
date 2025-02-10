@@ -45,9 +45,18 @@
             display: block;
             width: 25%;
             height: 3px;
-            background-color: var(--wp--preset--color--slate-200, #d1d5db);
+            background-color: var(--service-title-line-color, #E2E8F0);
             margin-top: 0.5rem;
             transition: all 0.3s;
+            display: var(--service-title-underline, block);
+        }
+    }
+
+    /* Service Title Hover Effects */
+    .wp-block-column:hover {
+        .wp-block-heading.service-title:after {
+            width: 50%;
+            background-color: var(--service-title-hover-color, #334155);
         }
     }
 

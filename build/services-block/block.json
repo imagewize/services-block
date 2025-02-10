@@ -30,6 +30,18 @@
           "background": "var(--wp--preset--color--slate-50)"
         }
       }
+    },
+    "titleUnderlineColor": {
+      "type": "string",
+      "default": "#E2E8F0"
+    },
+    "titleUnderlineHoverColor": {
+      "type": "string",
+      "default": "#334155"
+    },
+    "showTitleUnderline": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
