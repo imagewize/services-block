@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,6 +29,8 @@ import shopifySvg from './assets/shopify.svg';
 import wooCommerceSvg from './assets/woocommerce.svg';
 import laravelSvg from './assets/laravel.svg';
 
+import { PanelBody, ToggleControl } from '@wordpress/components';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -38,11 +40,16 @@ import laravelSvg from './assets/laravel.svg';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { backgroundColor } = attributes;
+	const { style, titleUnderlineColor, titleUnderlineHoverColor, showTitleUnderline } = attributes;
 	
 	const blockProps = useBlockProps({
 		className: 'py-16',
-		style: { backgroundColor }
+		style: { 
+			...style,  // This spreads the style object which includes backgroundColor
+			'--service-title-underline': showTitleUnderline ? 'block' : 'none',
+			'--service-title-line-color': titleUnderlineColor || '#E2E8F0',
+			'--service-title-hover-color': titleUnderlineHoverColor || '#334155'
+		}
 	});
 	
 	const TEMPLATE = [
@@ -54,8 +61,9 @@ export default function Edit({ attributes, setAttributes }) {
 			content: 'Our Awesome Services.',
 			textAlign: 'center',
 			align: 'center',
-			className: 'text-3xl text-center font-bold font-open-sans mb-12',
+			className: 'mb-12',  // Only keep margin class as it's not easily set in block settings
 			textColor: 'black',
+			fontSize: '3xl',     // Move size to block setting
 			style: {
 				typography: {
 					fontWeight: '700',
@@ -72,28 +80,22 @@ export default function Edit({ attributes, setAttributes }) {
 		['core/paragraph', {
 			content: 'We live and breathe web design, e-commerce, hosting, and website maintenance. If you need a stunning website for your products or services, a tailored e-commerce solution, speed optimization, or ongoing site maintenance, we\'re here to help you succeed.',
 			align: 'center',
-			className: 'text-xl leading-relaxed mb-12 text-textBodyGray font-open-sans',
+			className: 'mb-12', // Keep margin class only
+			fontSize: 'xl',     // Use WordPress font size setting
+			textColor: 'slate-600', // Use theme color with fallback
 			style: {
 				typography: {
 					fontWeight: '400',
 					fontStyle: 'normal',
 					fontFamily: 'var(--wp--preset--font-family--open-sans)',
-					fontSize: 'var(--wp--preset--font-size--xl)'
+					lineHeight: '1.75' // Replace leading-relaxed with actual line height
 				},
 				spacing: {
 					margin: {
 						bottom: '3rem'
 					}
-				},
-				elements: {
-					link: {
-						color: {
-							text: 'var:preset|color|textbodygray'
-						}
-					}
 				}
-			},
-			textColor: 'textbodygray'
+			}
 		}],
 		['core/columns', {}, [
 			['core/column', {
@@ -434,12 +436,45 @@ export default function Edit({ attributes, setAttributes }) {
 	];
 
 	return (
-		<section {...blockProps}>
-			<div className="container mx-auto max-w-4xl px-4">
-				<InnerBlocks 
-					template={TEMPLATE}
-				/>
-			</div>
-		</section>
+		<>
+			<InspectorControls>
+				<PanelBody 
+					title={__('Service Title Settings', 'services-block')}
+					initialOpen={true}
+				>
+					<ToggleControl
+						label={__('Show Title Underline', 'services-block')}
+						checked={showTitleUnderline}
+						onChange={(value) => setAttributes({ showTitleUnderline: value })}
+					/>
+					{showTitleUnderline && (
+						<PanelColorSettings
+							title={__('Title Underline Settings', 'services-block')}
+							initialOpen={true}
+							enableAlpha={true}
+							colorSettings={[
+								{
+									value: titleUnderlineColor,
+									onChange: (color) => setAttributes({ titleUnderlineColor: color }),
+									label: __('Default Underline Color'),
+								},
+								{
+									value: titleUnderlineHoverColor,
+									onChange: (color) => setAttributes({ titleUnderlineHoverColor: color }),
+									label: __('Hover Underline Color'),
+								}
+							]}
+						/>
+					)}
+				</PanelBody>
+			</InspectorControls>
+			<section {...blockProps}>
+				<div className="container mx-auto max-w-4xl px-4">
+					<InnerBlocks 
+						template={TEMPLATE}
+					/>
+				</div>
+			</section>
+		</>
 	);
 }
