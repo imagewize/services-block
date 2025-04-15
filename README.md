@@ -16,6 +16,20 @@ A WordPress block for creating customizable service sections with SVG icon suppo
 - WordPress 6.7+
 - PHP 8.0+
 - PHP XML extension
+- **SVG Upload Support:** WordPress blocks SVG uploads by default. To use SVG icons, you need to enable SVG uploads. This can be done via your theme's `functions.php` file or by using a plugin that allows SVG uploads.
+  Example code for `functions.php`:
+  ```php
+  /**
+   * Allow SVG uploads.
+   *
+   * @param array $mimes Allowed mime types.
+   * @return array Modified mime types.
+   */
+  add_filter('upload_mimes', function ($mimes) {
+      $mimes['svg'] = 'image/svg+xml';
+      return $mimes;
+  });
+  ```
 
 ## Installation
 
@@ -49,7 +63,7 @@ npm run build
 
 ## Security
 
-- SVG sanitization and validation
+- SVG sanitization and validation (Note: Requires SVG uploads to be enabled in WordPress, see Requirements)
 - Safe file handling
 - Proper MIME type checks
 
