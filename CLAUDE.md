@@ -64,7 +64,8 @@ Use atomic commits — one commit per file or logical file group, with a precise
 
 ### Versioning
 
-Version is maintained in three places — keep them in sync:
+Version is maintained in four places — keep them in sync:
 - `plugin.php` (header comment + `const VERSION`)
+- `package.json`
 - `src/services-block/block.json`
 - `build/services-block/block.json`
