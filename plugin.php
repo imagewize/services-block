@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Imagewize Services Blocks
- * Description: A collection of blocks featuring a Services Container block for creating service sections and an SVG block.
- * Version: 0.1.0
+ * Description: A collection of blocks featuring a Services Section block for creating service sections and an SVG block.
+ * Version: 1.0.1
  * Requires at least: 6.7
  * Requires PHP: 7.4
  * Author: Imagewize
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 define('SERVICES_BLOCK_DIR', untrailingslashit(plugin_dir_path(__FILE__)));
 
 class Imagewize_Services_Block {
-    const VERSION = '0.1.0';
+    const VERSION = '1.0.1';
 
     public static function register() {
         add_action('init', [self::class, 'register_blocks']);
